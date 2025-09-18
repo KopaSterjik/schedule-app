@@ -1,16 +1,14 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
+import React, { useState } from "react";
 import {
-  Text,
-  View,
-  StyleSheet,
-  Platform,
-  Touchable,
-  TouchableOpacity,
-  Modal,
   FlatList,
   Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import React, { useState } from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
 export default function Header() {
   const [selected, setselected] = useState("Яна");
   const [visible, setvisible] = useState(false);
@@ -46,7 +44,11 @@ export default function Header() {
                 data={options}
                 renderItem={({ item }) => (
                   <TouchableOpacity onPress={() => handleselect(item)}>
-                    <Text style={styles.listitemtext}>{item}</Text>
+                    <Ionicons
+                      style={styles.listitemtext}
+                      name="accessibility-outline">
+                      {item}
+                    </Ionicons>
                   </TouchableOpacity>
                 )}
               />
@@ -78,7 +80,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 20,
   },
-
   buttontext: {},
   overlay: {
     flex: 1,
@@ -99,5 +100,6 @@ const styles = StyleSheet.create({
   },
   listitemtext: {
     fontSize: 20,
+    marginTop: 5,
   },
 });
