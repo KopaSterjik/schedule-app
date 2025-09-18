@@ -31,7 +31,7 @@ export default function Header() {
         <TouchableOpacity
           style={styles.button}
           onPress={() => setvisible(true)}>
-          <Ionicons style={styles.button} name="people-outline">
+          <Ionicons style={{ fontSize: 20 }} name="people-outline">
             {selected}
           </Ionicons>
         </TouchableOpacity>
@@ -76,9 +76,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   button: {
-    alignItems: "center",
-    borderRadius: 10,
-    fontSize: 20,
+    justifyContent: "space-around",
   },
   buttontext: {},
   overlay: {
