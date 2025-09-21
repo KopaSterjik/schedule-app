@@ -1,16 +1,17 @@
-import { Text, View, StyleSheet } from "react-native";
 import React from "react";
+import { StyleSheet, View } from "react-native";
 import Header from "../components/Header";
-import List from "../components/List";
 import ListItem from "../components/List";
 export default function Main() {
   return (
-    <View>
+    <View style={styles.main}>
       <Header />
       <ListItem />
     </View>
   );
 }
 const styles = StyleSheet.create({
-  main: {},
+  main: {
+    backgroundColor: "#FFFCF6",
+  },
 });
