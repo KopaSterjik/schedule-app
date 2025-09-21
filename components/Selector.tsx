@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-export default function App() {
+export default function Selector() {
   const [open, setopen] = useState(false);
   const [value, setvalue] = useState(null);
   const [open2, setopen2] = useState(false);
   const [value2, setvalue2] = useState(null);
+
   const [items, setitems] = useState([
     { label: "Понедельник", value: "пн" },
     { label: "Вторник", value: "вт" },
@@ -31,6 +32,9 @@ export default function App() {
         setItems={setitems}
         placeholder="Выберите день:"
         style={styles.dropdown}
+        onSelectItem={(item) => {
+          console.log("Selected day:", item.value);
+        }}
         dropDownContainerStyle={styles.dropdownMenu}
         zIndex={1000}></DropDownPicker>
       <DropDownPicker
@@ -42,6 +46,9 @@ export default function App() {
         setItems={setitems2}
         placeholder="Выберите учебную неделю:"
         style={styles.dropdown}
+        onSelectItem={(item) => {
+          console.log("Selected week:", item.value);
+        }}
         dropDownContainerStyle={styles.dropdownMenu}
         zIndex={500}></DropDownPicker>
     </View>
