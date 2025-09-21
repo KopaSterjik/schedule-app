@@ -10,7 +10,7 @@ export default function ListItem() {
 }
 const styles = StyleSheet.create({
   main: {
-    top: 20,
+    top: 30,
     height: "100%",
   },
 });
