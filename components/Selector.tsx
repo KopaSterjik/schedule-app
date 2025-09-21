@@ -30,7 +30,9 @@ export default function App() {
         setValue={setvalue}
         setItems={setitems}
         placeholder="Выберите день:"
-        style={styles.dropdowndays}></DropDownPicker>
+        style={styles.dropdown}
+        dropDownContainerStyle={styles.dropdownMenu}
+        zIndex={1000}></DropDownPicker>
       <DropDownPicker
         open={open2}
         value={value2}
@@ -39,7 +41,9 @@ export default function App() {
         setValue={setvalue2}
         setItems={setitems2}
         placeholder="Выберите учебную неделю:"
-        style={styles.dropdownweeks}></DropDownPicker>
+        style={styles.dropdown}
+        dropDownContainerStyle={styles.dropdownMenu}
+        zIndex={500}></DropDownPicker>
     </View>
   );
 }
@@ -47,7 +51,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     top: 20,
+    flexDirection: "row",
+    gap: 10,
+    padding: 10,
+    flexWrap: "wrap",
+    justifyContent: "center",
+    left: "25%",
   },
-  dropdowndays: {},
-  dropdownweeks: { top: 25 },
+  dropdown: {
+    width: "48%",
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+    backgroundColor: "#f9f9f9",
+  },
+  dropdownMenu: {
+    width: "48%",
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+  },
 });
