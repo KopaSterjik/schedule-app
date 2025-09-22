@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import ScheduleItem from "./ScheduleItem";
+import Selector from "./Selector";
 export default function ListItem() {
+  const [day, setDay] = useState("пн");
+  const [week, setWeek] = useState("первая");
   return (
     <View style={styles.main}>
-      <ScheduleItem />
+      <Selector
+        onSelect={(d, w) => {
+          setDay(d);
+          setWeek(w);
+        }}
+      />
+      <ScheduleItem day={day} week={week} />
     </View>
   );
 }

@@ -1,11 +1,14 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import schedule from "../data/scheduleYana.json";
-import Selector from "../components/Selector";
 
-export default function ScheduleItem() {
-  // Example: get data for Wednesday of the first week
-  const data = schedule["day"]["week"];
+type Props = {
+  day: string;
+  week: string;
+};
+
+export default function ScheduleItem({ day, week }: Props) {
+  const data = schedule[day]?.[week] || [];
 
   const renderItem = ({ item }) => {
     const [start, end] = item.time.split("-");

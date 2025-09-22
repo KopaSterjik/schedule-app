@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 
-export default function Selector() {
+type Props = {
+  onSelect: (day: string, week: string) => void;
+};
+
+export default function Selector({ onSelect }: Props) {
   const [open, setopen] = useState(false);
-  const [value, setvalue] = useState(null);
+  const [value, setvalue] = useState<string | null>(null);
   const [open2, setopen2] = useState(false);
-  const [value2, setvalue2] = useState(null);
+  const [value2, setvalue2] = useState<string | null>(null);
 
   const [items, setitems] = useState([
     { label: "Понедельник", value: "пн" },
@@ -21,6 +25,10 @@ export default function Selector() {
     { label: "Первая", value: "первая" },
     { label: "Вторая", value: "вторая" },
   ]);
+
+  const handleSelect = (day: string | null, week: string | null) => {
+    if (day && week) onSelect(day, week);
+  };
   return (
     <View style={styles.container}>
       <DropDownPicker
@@ -28,13 +36,13 @@ export default function Selector() {
         value={value}
         items={items}
         setOpen={setopen}
-        setValue={setvalue}
+        setValue={(val) => {
+          setvalue(val);
+          handleSelect(val, value2);
+        }}
         setItems={setitems}
         placeholder="Выберите день:"
         style={styles.dropdown}
-        onSelectItem={(item) => {
-          console.log("Selected day:", item.value);
-        }}
         dropDownContainerStyle={styles.dropdownMenu}
         zIndex={1000}></DropDownPicker>
       <DropDownPicker
@@ -42,13 +50,13 @@ export default function Selector() {
         value={value2}
         items={items2}
         setOpen={setopen2}
-        setValue={setvalue2}
+        setValue={(val) => {
+          setvalue2(val);
+          handleSelect(value, val);
+        }}
         setItems={setitems2}
         placeholder="Выберите учебную неделю:"
         style={styles.dropdown}
-        onSelectItem={(item) => {
-          console.log("Selected week:", item.value);
-        }}
         dropDownContainerStyle={styles.dropdownMenu}
         zIndex={500}></DropDownPicker>
     </View>
@@ -57,7 +65,6 @@ export default function Selector() {
 
 const styles = StyleSheet.create({
   container: {
-    top: 20,
     flexDirection: "row",
     gap: 10,
     padding: 10,
