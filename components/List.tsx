@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import Header from "../components/Header";
 import ScheduleItem from "./ScheduleItem";
 import Selector from "./Selector";
@@ -18,6 +18,9 @@ export default function ListItem() {
         }}
       />
       <ScheduleItem day={day} week={week} user={user} />
+      <View style={styles.copyright}>
+        <Text>© 2025 Korzhik Stepan, BSUIR.</Text>
+      </View>
     </View>
   );
 }
@@ -25,5 +28,13 @@ const styles = StyleSheet.create({
   main: {
     top: 30,
     height: "100%",
+  },
+  copyright: {
+    height: 50,
+    backgroundColor: "#FFFCF6",
+    borderTopColor: "#000000ff",
+    borderTopWidth: 0.5,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
