@@ -19,7 +19,6 @@ export default function Selector({ onSelect }: Props) {
     { label: "Четверг", value: "чт" },
     { label: "Пятница", value: "пт" },
     { label: "Суббота", value: "сб" },
-    { label: "Воскресенье", value: "вс" },
   ]);
   const [items2, setitems2] = useState([
     { label: "Первая", value: "первая" },

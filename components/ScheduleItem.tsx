@@ -1,13 +1,25 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import schedule from "../data/scheduleYana.json";
+import schedule1 from "../data/scheduleYana.json";
+import schedule2 from "../data/scheduleKsenia.json";
+import schedule3 from "../data/scheduleAlina.json";
 
 type Props = {
   day: string;
   week: string;
+  user: string;
 };
 
-export default function ScheduleItem({ day, week }: Props) {
+export default function ScheduleItem({ day, week, user }: Props) {
+  let schedule;
+  if (user === "Яна") {
+    schedule = schedule1;
+  } else if (user === "Ксения") {
+    schedule = schedule2;
+  } else if (user === "Алина") {
+    schedule = schedule3;
+  }
+
   const data = schedule[day]?.[week] || [];
 
   const renderItem = ({ item }) => {

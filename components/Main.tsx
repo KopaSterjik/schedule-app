@@ -3,9 +3,9 @@ import { StyleSheet, View } from "react-native";
 import Header from "../components/Header";
 import ListItem from "./List";
 export default function Main() {
+  const [user, setUser] = useState("Яна");
   return (
     <View style={styles.main}>
-      <Header />
       <ListItem />
     </View>
   );

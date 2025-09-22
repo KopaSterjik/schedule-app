@@ -9,7 +9,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-export default function Header() {
+type Props = {
+  onUserChange: (user: string) => void;
+};
+
+export default function Header({ onUserChange }: Props) {
   const [selected, setselected] = useState("Яна");
   const [visible, setvisible] = useState(false);
 
@@ -17,6 +21,7 @@ export default function Header() {
 
   const handleselect = (option: string) => {
     setselected(option);
+    onUserChange(option);
     setvisible(false);
   };
 
