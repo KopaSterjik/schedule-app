@@ -19,7 +19,7 @@ export default function ListItem() {
       />
       <ScheduleItem day={day} week={week} user={user} />
       <View style={styles.copyright}>
-        <Text>© 2025 Korzhik Stepan, BSUIR.</Text>
+        <Text style={{ fontFamily: "ML" }}>© 2025 Korzhik Stepan, BSUIR.</Text>
       </View>
     </View>
   );
